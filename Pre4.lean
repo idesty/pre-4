@@ -81,6 +81,12 @@ lemma f'_bi : Bijective (f' p) := by
     have h1 := f' p a1
     rcases h1 with ⟨h1_val, h1_p⟩
     intro h
+    unfold f' at h
+    simp at h
+    rcases h with ⟨h₁, h₂⟩
+    have : a0.1.fst = a1.1.fst := by
+      rw [← add_sub_cancel a0.1.fst a0.1.snd, ← add_sub_cancel a1.1.fst a1.1.snd, h₁]
+      simp
     sorry
   sorry
 
